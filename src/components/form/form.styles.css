@@ -1,32 +1,21 @@
 
 .initial_money{
-    display: flex;
-    flex-direction: row;
+    display: inline-block;
 }
-.buttons_money{
-    display: contents;  
-
+.money-choice{
+    font-size: 30px;
 }
-.buttons{
-    width:50%;
-    height: 50%;
-    border-radius: 10px;
+.button{
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 5px;
     border: 5px;
+    border-radius: 30px;
     align-items: center;
 }
 label{
     display:block;
 }
 input{
-    border-radius: 10px;
-    font-size:18px;
-    justify-content: center;
-
-}
-.buttom-add{
-    background-color: green;
-}
-
-.buttom-remove{
-    background-color: darkred;
+    border-radius: 15px;
 }

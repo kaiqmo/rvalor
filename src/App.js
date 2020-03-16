@@ -1,13 +1,15 @@
 import React from 'react';
 import Header from './components/header/header.component.jsx';
-import Chart from './components/chart/chart.component.jsx';
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
+
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 import Form from '../src/components/form/form.component.jsx';
+import Chatbot from '../src/components/chatbot/chatbot.component.jsx';
+import Chart from '../src/components/chart/chart.component.jsx';
+
+import {Container, Row,Col} from 'react-bootstrap';
 
 class App extends React.Component{
   constructor(){
@@ -15,8 +17,8 @@ class App extends React.Component{
     this.state = {
       btc:null,
       btc_hoje:null,
-      value_field:2000,
-      tempo:2,
+      value_field:10000,
+      tempo:3,
       rentabilidade_rf:10,
       renda_fixa:null,
       btc_retorno:null
@@ -38,8 +40,8 @@ class App extends React.Component{
         obj.date = dia.toDateString().slice(4,d.length);
         btc.push(obj);
       });
-      this.setState({ btc: btc, btc_hoje:btc[btc.length-1] });      
-      this.Calculations()
+      this.setState({ btc: btc, btc_hoje:btc[btc.length-1].price });      
+      this.Calculations();
     });
     
   }
@@ -50,27 +52,31 @@ class App extends React.Component{
   };
 
   handleSubs = async() =>{
-    var subs =  parseInt(this.state.value_field) - 250;
+    var subs =  parseInt(this.state.value_field) - 1000;
     await  this.setState({value_field: subs});
     this.Calculations()
   };
 
   handleUps = async() =>{
-    var subs =  parseInt(this.state.value_field) + 250;
+    var subs =  parseInt(this.state.value_field) + 1000;
     await this.setState({value_field: subs});
     this.Calculations()
   };
 
   handleUpTime = async() => {
     var new_time = this.state.tempo + 1;
-    await this.setState({ tempo : new_time});
-    this.Calculations()
+    if(new_time<=5){
+      await this.setState({ tempo : new_time});
+      this.Calculations()
+    }
   };
 
   handleDownTime = async() =>{
     var new_time = this.state.tempo - 1;
-    await  this.setState({tempo: new_time});
-    this.Calculations()
+    if(new_time >=1){
+      await  this.setState({tempo: new_time});
+      this.Calculations()
+    }
   };
   Calculations = async() => {
     var rendimento = this.state.value_field * (1+( this.state.tempo * this.state.rentabilidade_rf )/100);
@@ -83,37 +89,47 @@ class App extends React.Component{
   render(){
   return(
     <div className="App">
-        <Header btc={this.state.btc_hoje}  />
+        {
+          this.state.btc_hoje?
+          <Header btc_hoje={this.state.btc_hoje} />
+          :
+          <Header />
+        }
         <div className="body">
           <Container>
-            <Row>
-             <Col>
             
-              <Form   label='Dinheiro Investimento' labelinput='R$:' props={this.state} value={this.state.value_field} handleChange={this.handleChange} handleUps={this.handleUps} handleSubs={this.handleSubs} />
-              <br />
-              <Form   label='Tempo Total do Investimento' labelinput='Tempo:' props={this.state} value={this.state.tempo} handleChange={this.handleChange} handleUps={this.handleUpTime} handleSubs={this.handleDownTime} />
-              <br />
-          
-            </Col>
-            <Col>
-              <span >
-                Retorno Renda Fixa  a 10% ao ano:<input type="number" placeholder={this.state.renda_fixa} disabled></input>
-              </span>
-              <span>
-                Retorno Bitcoin:<input type="number" placeholder={this.state.btc_retorno} disabled></input>
-              </span>
-          
-            </Col>
-
+            <Row md={{ span: 4, offset: 4 }} >
+              <h2>O Bitcoin é uma criptomoeda, um ativo digital projetado para funcionar como um meio de troca que usa criptografia para controlar sua criação e gerenciamento, em vez de depender das autoridades centrais.</h2>
             </Row>
-          </Container>
 
-            {
-              this.state.btc?
-            <Chart props={ this.state.btc} />
-            :
-            <a href="github.io/kaiqmo">Kaiqmo</a>
-            }
+            <Row>
+              <Col>
+              <h1> Investimento Inicial</h1>
+              <Form   label='Dinheiro' labelinput='R$:' props={this.state} value={this.state.value_field} handleChange={this.handleChange} handleUps={this.handleUps} handleSubs={this.handleSubs} />
+              <Form   label='Tempo de Investimento' labelinput='Tempo:' props={this.state} value={this.state.tempo} handleChange={this.handleChange} handleUps={this.handleUpTime} handleSubs={this.handleDownTime} />
+              </Col>
+              <Col>
+              <h1> Seus Rendimentos</h1>
+              <h1>
+                Renda Fixa:<input type="number" className="rendimentos" placeholder={this.state.renda_fixa} disabled></input>
+              </h1>
+              <h1>
+                Bitcoin:<input type="number"  className="rendimentos" placeholder={this.state.btc_retorno} disabled></input>
+              </h1>
+              </Col>
+            </Row>
+            <h1> Veja o grafico fenomenal do Bitcoin abaixo!</h1>
+            <Col md={{ span: 3, offset: 3 }}>
+                {
+                  this.state.btc?
+                <Chart props={ this.state.btc} tempo={this.state.tempo} />
+                :
+                <a href="https://github.com/kaiqmo/rvalor/">Kaiqmo</a>
+                }
+            </Col>
+          </Container>
+          
+        <Chatbot />
         </div>
     </div>
   )};

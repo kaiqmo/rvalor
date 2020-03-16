@@ -5,7 +5,7 @@ import {  LineChart, Line, XAxis, YAxis,
      Tooltip, CartesianGrid,  Brush,  AreaChart, Area,
       } from 'recharts';
 
-const Chart = ({props})=>{
+const Chart = ({props, tempo})=>{
     return(
     // <div className="footer-container">
         
@@ -31,7 +31,7 @@ const Chart = ({props})=>{
           labelStyle={{ fontWeight: 'bold', color: '#666666' }}
         />
         <Line dataKey="price" stroke="#ff7300" dot={false} />
-        <Brush dataKey="date" startIndex={props.length - 365}>
+        <Brush dataKey="date" startIndex={props.length - (tempo * 365)}>
           <AreaChart>
             <CartesianGrid />
             <YAxis hide domain={['auto', 'auto']} />

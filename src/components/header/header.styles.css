@@ -1,18 +1,18 @@
 
-.head{ 
-  display: -webkit-inline-box;
+.head{  
   justify-content: center;
-  color: goldenrod;
-  background-color: black;
-  border: 5px;
-  border-radius: 15px;
-  padding: 10px 0px 10px 0px;
-
+  background-color: White;
+  border: 50px;
+  padding: 15px;
+  width: -webkit-fill-available;
+  display: flex;
   text-decoration: none;
-  width: fit-content;
+  background: darkgray;
   }
-
 .row{
   padding: 15px;
   margin: 5px;
+}
+.image{
+  border-radius: 15px;
 }
