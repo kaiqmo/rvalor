@@ -12,6 +12,7 @@ Possui as depêndencias:
 - react-financial-charts,
 - react-icons,
 - react-materialize
+- gh-pages
 
 Usabilidade do mesmo :
 - npm install 
