@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/rvalor/static/css/main.915afd92.chunk.css",
+    "main.js": "/rvalor/static/js/main.3b1e3281.chunk.js",
+    "main.js.map": "/rvalor/static/js/main.3b1e3281.chunk.js.map",
+    "runtime-main.js": "/rvalor/static/js/runtime-main.7b252498.js",
+    "runtime-main.js.map": "/rvalor/static/js/runtime-main.7b252498.js.map",
+    "static/css/2.de424728.chunk.css": "/rvalor/static/css/2.de424728.chunk.css",
+    "static/js/2.a03c80a7.chunk.js": "/rvalor/static/js/2.a03c80a7.chunk.js",
+    "static/js/2.a03c80a7.chunk.js.map": "/rvalor/static/js/2.a03c80a7.chunk.js.map",
+    "index.html": "/rvalor/index.html",
+    "precache-manifest.034d8316cebc10d9f8f32c6d4759840f.js": "/rvalor/precache-manifest.034d8316cebc10d9f8f32c6d4759840f.js",
+    "service-worker.js": "/rvalor/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/rvalor/static/css/2.de424728.chunk.css.map",
+    "static/css/main.915afd92.chunk.css.map": "/rvalor/static/css/main.915afd92.chunk.css.map",
+    "static/js/2.a03c80a7.chunk.js.LICENSE.txt": "/rvalor/static/js/2.a03c80a7.chunk.js.LICENSE.txt",
+    "static/media/real.png": "/rvalor/static/media/real.b1dfe400.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7b252498.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.a03c80a7.chunk.js",
+    "static/css/main.915afd92.chunk.css",
+    "static/js/main.3b1e3281.chunk.js"
+  ]
+}
