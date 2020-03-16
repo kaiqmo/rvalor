@@ -1,38 +1,63 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.body{
+  width:100%;
+  height: 100%;
+  background-color: black;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+h1{
+  font-family: 'Bigelow Rules';
+  font-size: 36px;
+  color:gold;
+}
+.esquerda{
+  
+}
+img{
+  max-width: 250px;
+  min-width:-webkit-fill-available;
+  justify-content: center;
+  align-items: center;
+  max-height: 400px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 992px) {
+  body{
+    width:990px;
+    height: auto;
   }
-  to {
-    transform: rotate(360deg);
+  h1 {
+    background-color: grey;
+    border-radius: 15px;
+      margin:10px;
+    width:90%;
+    text-align: center;
+    display:list-item
+  }
+
+  img{
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+  body{
+    width:600px;
+  }
+  h1 {
+    background-color: olive;
+  }
+  img{
+    max-width: 150px;
+    max-height: 150px;
   }
 }

@@ -1,0 +1,16 @@
+.footer-container{
+    text-align: center;
+    justify-content: center;
+    color: black;
+}
+.afooter{
+    text-decoration: none;
+}
+.h1Footer{
+    color:black;
+}
+.chart{
+justify-content: center;
+align-items: center;
+display: block;
+}
